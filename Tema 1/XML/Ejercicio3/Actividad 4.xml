@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Lenguaje-De-Marcas>
+		<alumno>
+			<nombre>Ana</nombre>
+			<apellidos>Fernández Gutiérrez</apellidos>
+			<nif>16965696L</nif>
+			<telefono>789654321</telefono>
+			<email>ana.fdezgtrrez@hotmail.com</email>
+			<direccion>
+				<poblacion>Santader</poblacion>
+				<tipo-de-via>c/ El Percebe</tipo-de-via>
+				<numero>13</numero>
+				<cp>39302</cp>
+			</direccion>
+			<notas>No consta</notas>
+			<faltasAsis>No consta</faltasAsis>
+		</alumno>
+		<alumno>
+			<nombre>Pepito</nombre>
+			<apellidos>Grillo</apellidos>
+			<nif>98765432H</nif>
+			<telefono>656566555</telefono>
+			<email>yhyh@yahoo.com</email>
+			<direccion>
+				<poblacion>Suances</poblacion>
+				<tipo-de-via>Avd. El Pez</tipo-de-via>
+				<numero>5</numero>
+				<cp>39401</cp>
+			</direccion>
+			<notas>Apto</notas>
+			<faltasAsis>No tiene </faltasAsis>
+		</alumno>
+	</Lenguaje-De-Marcas>

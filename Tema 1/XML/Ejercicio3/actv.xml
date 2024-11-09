@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agenda>
+	<contacto>
+		<nombre>juan</nombre>
+		<apellidos>cosa buena</apellidos>
+		<direccion>calle barbarcoa 2</direccion>
+		<telefono-casa>956205212</telefono-casa>
+		<telefono-trabajo>956454585</telefono-trabajo>
+		<telefono-movil>666558895</telefono-movil>
+	</contacto>
+	<contacto>
+		<nombre>pepe</nombre>
+		<apellidos>bueno pelota</apellidos>
+		<direccion>calle chorizo 2</direccion>
+		<telefono-casa>956205211</telefono-casa>
+		<telefono-trabajo>956454525</telefono-trabajo>
+		<telefono-movil>666558835</telefono-movil>
+	</contacto>
+	<contacto>
+		<nombre>maria</nombre>
+		<apellidos>casa piso</apellidos>
+		<direccion>calle parrilla 3</direccion>
+		<telefono-casa>956203212</telefono-casa>
+		<telefono-trabajo>956554585</telefono-trabajo>
+		<telefono-movil>666555895</telefono-movil>
+	</contacto>
+</agenda>
+	
