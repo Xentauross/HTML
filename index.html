@@ -5,73 +5,74 @@
     <meta name="author" content="Vicente">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio de Índice</title>
-    <style>
-        h1{
-            color: #D50000; 
-            font-family: Tahoma, sans-serif;
-            font-size: 30px;
-            text-align: center;
-            position: relative;
-            margin: 0;
-            
-        }
-        h2{
-            color: #C00000; 
-            font-family: Tahoma, sans-serif;
-            font-size: 20px;
-            text-align: center;
-        }
-        h3{
-            color: #D50000;
-            font-family: Tahoma, sans-serif;
-            font-size: 20px;
-            text-align: center;
-        }
-        div{
-            border: 2px solid #D50000;
-            background: #FFFFFF;
-            transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
-            max-width: 500px;
-            margin: auto;
-        }
-        div:hover {
-        transform: scale(1.1);
-        background: #FDEDEC;
-        }  
-
-        li{
-            color: #D50000; 
-            font-family: Tahoma, sans-serif;
-            font-size: 20px;
-            text-align: left;
-        }
-        body {
-            background-color: #E6E6E6; 
-
-            padding-top: 0px;
-        }
-    </style>
 </head>
+<style>
+    h1{
+        color: #D50000; 
+        font-family: Tahoma, sans-serif;
+        font-size: 30px;
+        text-align: center;
+        position: relative;
+        margin: 0;
+        
+    }
+    h2{
+        color: #C00000; 
+        font-family: Tahoma, sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+    h3{
+        color: #D50000;
+        font-family: Tahoma, sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+    table{
+        display: flex;
+        justify-content: center;
+    }
+    main{
+        display: flex;
+        justify-content: center;
+    }
+    th{
+        border: 2px solid #D50000;
+        background: #FFFFFF;
+        transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+        max-width: 500px;
+        margin: auto;
+        
+    }
+    th:hover {
+    transform: scale(1.1);
+    background: #FDEDEC;
+    }  
+    body {
+        background-color: #E6E6E6; 
+        padding-top: 0px;
+    }
+    footer{
+        text-align: center;
+    }
+</style>
 <body>
-    <h1>Vicente Peinado</h1>
-    <h3>Lenguaje de Marcas 1 DAW</h3>
-        <br>
-    <h2>Tema 1: Introducción al lenguaje de marcas</h2>
-        <div>
-            <ul>
-                <li><a href="/HTML/Tema 1//XML/Ejercicio1.xml" target="_blank">Ejercicio 1</a></li>
-                <li><a href="/HTML/Tema 1//XML/Ejercicio2.xml" target="_blank">Ejercicio 2</a></li>
-            </ul>
-        </div>
-        <br><br>
-    <h2>Tema 2: HTML</h2>
-        <div>
-            <ul>
-                <li><a href="/HTML/Tema 2/EjemploListas.html" target="_blank">Ejercicio Listas</a></li>
-                <li><a href="/HTML/Tema 2/EjemploHorario.html" target="_blank">Ejercicio Horario</a></li>
-                <li><a href="/HTML/Tema 2/iframe.html" target="_blank">Ejercicio Iframe</a></li>
-                <li><a href="/HTML/Tema 2/formulario.html" target="_blank">Ejercicio Formulario</a></li>
-            </ul>
-        </div>
+    <header>
+        <h1>Vicente Peinado</h1>
+        <h3>Lenguaje de Marcas 1 DAW</h3>
+    </header>
+    <nav>
+        <table>
+            <tr><th href="/HTML/index1.html">Tema 1</th><th href="/HTML/index2.html">Tema 2</th></tr>
+        </table>
+    </nav>
+    <br><br><br><br><br>
+    <main>
+        <image src="https://die.mep.go.cr/sites/all/files/enconstruccion_4.gif" alt="imagen" width="800" height="400"></image>
+    </main>
+    <br><br><br><br><br><br><br>
+    <footer>
+        <p><em>Copyright 2024 Vicente Peinado</em></p>
+    </footer>
 </body>
 </html>
