@@ -1,0 +1,222 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #dcdcdc; /* Texto claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#cv {
+    width: 90%;
+    max-width: 900px;
+    background: #2a2a2a; /* Fondo gris oscuro */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Encabezado */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007d75; /* Verde agua oscuro */
+    padding: 20px;
+    color: #ffffff;
+}
+
+#header .personal {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #00b1a5; /* Borde verde agua claro */
+}
+
+#name h3 {
+    margin: 0;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 5px;
+}
+
+#name p {
+    margin: 5px 0;
+    margin-left: 8px;
+    font-size: 1.1em;
+    color: #dcdcdc;
+}
+
+#buttons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#buttons img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0.8);
+    transition: transform 0.3s;
+}
+
+#buttons img:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+/* Contenido principal */
+#contenido {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+#izq {
+    background-color: #333; /* Verde agua oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    width: 35%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadido para el hover */
+}
+
+#der {
+    background-color: #333; /* Gris medio */
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadido para el hover */
+}
+
+/* Secciones de "Contacto", "Idioma" y "Otros datos de interés" */
+#izq > div {
+    margin-bottom: 20px;
+}
+
+#izq #contacto, #izq #idioma, #izq #otrosDatos {
+    background-color: #2a2a2a; /* Verde agua claro */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadido para el hover */
+}
+
+/* Efecto hover para secciones dentro de #izq */
+#izq #contacto:hover, #izq #idioma:hover, #izq #otrosDatos:hover {
+    transform: translateY(-10px); /* Eleva ligeramente las secciones */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Añade sombra */
+}
+
+div#title {
+    display: flex;
+    align-items: center;
+    background-color: #007d75; /* Verde agua oscuro */
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+div#title img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+#relleno h4 {
+    font-size: 1.1em;
+    color: #00b1a5; /* Verde agua claro */
+    margin: 10px 0 5px;
+}
+
+#izq #relleno p {
+    margin: 5px 0;
+    color: #dcdcdc;
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+}
+
+/* Títulos de las secciones de "Otros datos de interés", "Idioma" y "Contacto" */
+#izq #contacto #title p,
+#izq #idioma #title p,
+#izq #otrosDatos #title p {
+    font-size: 1.3em;
+    color: #ffffff;
+}
+
+/* Columna derecha */
+#title1 {
+    display: flex;
+    align-items: center;
+    background-color: #007d75; /* Verde agua oscuro */
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#title1 h4 {
+    font-size: 1.3em;
+    color: #ffffff;
+}
+
+div#infoPersonal, #experiencia, #formacion {
+    background-color: #2a2a2a; /* Fondo gris oscuro */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Añadido para el hover */
+}
+
+/* Efecto hover para las secciones dentro de la columna derecha */
+div#infoPersonal:hover, #experiencia:hover, #formacion:hover {
+    transform: translateY(-10px); /* Eleva ligeramente las secciones */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Añade sombra */
+}
+
+#rellenoDat h5,
+#rellenoExp h5,
+#rellenoFormacion h5,
+#rellenoComplentaria h5 {
+    font-size: 1.1em;
+    color: #00b1a5; /* Verde agua claro */
+    margin: 10px 0 5px;
+}
+
+#rellenoDat p,
+#rellenoExp p,
+#rellenoFormacion p,
+#rellenoComplentaria p {
+    margin: 0 0 10px;
+    line-height: 1.4;
+    font-size: 0.95em;
+    color: #dcdcdc;
+}
+
+div#title1 img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    #contenido {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #izq, #der {
+        width: 100%;
+    }
+}
