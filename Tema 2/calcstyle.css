@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+  }
+
+  /* Body centrado en la pantalla */
+  body {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    height: 100vh;
+    background-color: #f4f4f4; /* Fondo suave */
+    margin: auto; /* Centrado en la ventana */
+  }
+
+  /* Contenedor de la cuadrícula */
+  .container {
+    padding: 10px;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: repeat(4, 0.2fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    width: 80vh; /* Usa 80% del ancho de la ventana */
+    height: 80vh; /* Usa 80% de la altura de la ventana */
+  }
+
+  /* Elementos de la cuadrícula */
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fb6942;
+    color: #fff;
+    border-radius: 1rem;
+    font-size: 2rem;
+    height: 10vh; /* La altura se adapta al 10% de la ventana */
+    width: 50%; /* Ancho completo dentro de la celda */
+  }
+
+  /* Elemento que ocupa más espacio */
+  #last {
+    height: 25vh;
+    grid-column: 4; /* Ocupa la columna 4 */
+    grid-row: span 2; /* Ocupa 2 filas */
+    background-color: #2b8a3e; /* Color diferente para diferenciarlo */
+  }
+
+  /* Hacer que el contenido se ajuste al hacer zoom */
+  @media (max-width: 800px) {
+    /* Ajusta el tamaño de la cuadrícula en pantallas más pequeñas */
+    .container {
+      width: 90vw;
+      height: 70vh;
+    }
+
+    .item {
+      font-size: 0.7rem; /* Ajusta el tamaño del texto */
+    }
+  }
