@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Importamos la biblioteca jQuery desde un CDN para facilitar la manipulación del DOM -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Calculadora</title>
+    <script type="text/javascript">
+        // Esperamos a que el documento esté completamente cargado antes de ejecutar el script
+        $(document).ready(function(e){
+            // Evento para la suma
+            $(".sumar").click(function(e){
+                var valor1, valor2, resultado;
+                // Obtenemos los valores de los inputs y los convertimos a números
+                valor1=Number($(".valor1").val());
+                valor2=Number($(".valor2").val());
+                // Verifica si alguno de los valores no es un número válido
+                if (isNaN(valor1) || isNaN(valor2)) {
+                    resultado = "Error: Ingresa números válidos.";
+                }
+                // Realizamos la suma
+                resultado=valor1+valor2;
+                // Mostramos el resultado en el div con clase "resultado"
+                $(".resultado").html("<p>El resultado es: "+resultado+"</p>");
+            });
+            // Evento para la resta
+            $(".restar").click(function(e){
+                var valor1, valor2, resultado;
+                valor1=Number($(".valor1").val());
+                valor2=Number($(".valor2").val());
+                // Verifica si alguno de los valores no es un número válido
+                if (isNaN(valor1) || isNaN(valor2)) {
+                    resultado = "Error: Ingresa números válidos.";
+                }
+                resultado=valor1-valor2;
+                $(".resultado").html("<p>El resultado es: "+resultado+"</p>");
+            });
+            // Evento para la multiplicación
+            $(".multiplicar").click(function(e){
+                var valor1, valor2, resultado;
+                valor1=Number($(".valor1").val());
+                valor2=Number($(".valor2").val());
+                // Verifica si alguno de los valores no es un número válido
+                if (isNaN(valor1) || isNaN(valor2)) {
+                    resultado = "Error: Ingresa números válidos.";
+                }
+                resultado=valor1*valor2;
+                $(".resultado").html("<p>El resultado es: "+resultado+"</p>");
+            });
+            // Evento para la división
+            $(".dividir").click(function(e){
+                var valor1, valor2, resultado;
+                valor1=Number($(".valor1").val());
+                valor2=Number($(".valor2").val());
+                // Verifica si alguno de los valores no es un número válido
+                if (isNaN(valor1) || isNaN(valor2)) {
+                    resultado = "Error: Ingresa números válidos.";
+                }
+                resultado=valor1/valor2;
+                $(".resultado").html("<p>El resultado es: "+resultado+"</p>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <p>Para calcular la suma, resta, la multiplicacion y la división, introduce los valores en los campos correspondientes.</p>
+    <!-- Campos de entrada para los valores numéricos -->
+    <p>Introduce el primer valor <input type="number" name="valor1" class="valor1"></p>
+    <p>Introduce el segundo valor <input type="number" name="valor2" class="valor2"></p>
+    <!-- Botones para realizar las operaciones -->
+    <input type="button" class="sumar" value="sumar">
+    <input type="button" class="restar" value="restar">
+    <input type="button" class="multiplicar" value="multiplicar">
+    <input type="button" class="dividir" value="dividir">
+    <!-- Aquí se mostrará el resultado de la operación -->
+    <div class="resultado"></div>
+</body>
+</html>
