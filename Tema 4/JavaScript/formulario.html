@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para IA</title>
+    <style>
+        /* Estilos básicos para el cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Fondo claro */
+        }
+    
+        /* Estilos para el formulario */
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+    
+        /* Estilos para las cajas de opciones */
+        .opciones {
+            display: flex;
+            flex-direction: column; /* Asegura que el título esté arriba */
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fefefe; /* Fondo claro para las opciones */
+        }
+    
+        /* Centrar el h2 dentro de las cajas */
+        .opciones h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        /* Estilos para los contenedores de etiquetas */
+        .selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center; /* Centra las opciones */
+        }
+    
+        /* Estilos para las etiquetas dentro de las cajas */
+        .opciones label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+    
+        /* Estilos para los botones */
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Estilos para el contenedor del resultado */
+        #resultado {
+            max-width: 600px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px; /* Altura mínima para el contenedor */    
+            margin-bottom: 20px;    
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario para IA</h1>
+
+    <!-- Formulario para recoger los datos -->
+    <form id="formulario">
+        <!-- Selección para el tipo de motor -->
+        <div class="opciones">
+            <h2>Tipo de motor</h2>
+            <div class="selector">
+                <label><input type="radio" name="motor" value="electrico" data-precio="30000"> Eléctrico</label>
+                <label><input type="radio" name="motor" value="gasolina" data-precio="25000"> Gasolina</label>
+                <label><input type="radio" name="motor" value="hibirido" data-precio="28000"> Híbirido</label>
+                <label><input type="radio" name="motor" value="diesel" data-precio="27000"> Diésel</label>
+            </div>
+        </div>
+
+        <!-- Selección para el tipo de transmisión -->
+        <div class="opciones">
+            <h2>Tipo de transmisión</h2>
+            <div class="selector">
+                <label><input type="radio" name="transmision" value="automatica" data-precio="2000"> Automática</label>
+                <label><input type="radio" name="transmision" value="manual" data-precio="0"> Manual</label>
+                <label><input type="radio" name="transmision" value="cvt" data-precio="1500"> CVT</label>
+                <label><input type="radio" name="transmision" value="doble-embrague" data-precio="2500"> Doble embrague</label>
+            </div>
+        </div>
+
+        <!-- Selección para el tipo de tracción -->
+        <div class="opciones">
+            <h2>Tipo de tracción</h2>
+            <div class="selector">
+                <label><input type="radio" name="traccion" value="delantera" data-precio="0"> Delantera (FWD)</label>
+                <label><input type="radio" name="traccion" value="trasera" data-precio="1000"> Trasera (RWD)</label>
+                <label><input type="radio" name="traccion" value="total" data-precio="2000"> Total o integral (AWD, 4x4)</label>
+            </div>
+        </div>
+
+        <!-- Selección para el tipo de carrocería -->
+        <div class="opciones">
+            <h2>Tipo de carrocería</h2>
+            <div class="selector">
+                <label><input type="radio" name="carroceria" value="sedán" data-precio="0"> Sedán</label>
+                <label><input type="radio" name="carroceria" value="hatchback" data-precio="-500"> Hatchback</label>
+                <label><input type="radio" name="carroceria" value="SUV" data-precio="3000"> SUV</label>
+                <label><input type="radio" name="carroceria" value="coupé" data-precio="1000"> Coupé</label>
+                <label><input type="radio" name="carroceria" value="cabrio/descapotable" data-precio="4000"> Cabrio/Descapotable</label>
+                <label><input type="radio" name="carroceria" value="familiar" data-precio="1500"> Familiar</label>
+                <label><input type="radio" name="carroceria" value="pick-up" data-precio="2500"> Pick-up</label>
+                <label><input type="radio" name="carroceria" value="monovolumen" data-precio="2000"> Monovolumen</label>
+            </div>
+        </div>
+
+        <!-- Selección para el número de puertas -->
+        <div class="opciones">
+            <h2>Número de puertas</h2>
+            <div class="selector">
+                <label><input type="radio" name="puertas" value="2" data-precio="-1000"> 2</label>
+                <label><input type="radio" name="puertas" value="3" data-precio="-500"> 3</label>  
+                <label><input type="radio" name="puertas" value="4" data-precio="0"> 4</label>
+                <label><input type="radio" name="puertas" value="5" data-precio="500"> 5</label>
+            </div>
+        </div>
+
+        <!-- Botón para generar la frase -->
+        <button type="button" onclick="generarFrase()">Generar frase</button>
+    </form>
+
+    <!-- Contenedor donde se mostrará la frase generada -->
+    <div id="resultado"></div>
+
+    <div id="total" style="position: fixed; bottom: 10px; right: 10px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        Total: 0€
+    </div>
+
+    <script>
+        // Función para calcular el total
+        function calcularTotal() {
+            let total = 0;
+    
+            // Seleccionar todos los radio buttons marcados
+            const seleccionados = document.querySelectorAll('input[type="radio"]:checked');
+    
+            // Sumar los valores de "data-precio"
+            seleccionados.forEach((radio) => {
+                total += parseFloat(radio.getAttribute('data-precio')) || 0;
+            });
+    
+            // Mostrar el total en el contenedor
+            document.getElementById('total').textContent = `Total: ${total.toFixed(0)}€`;
+        }
+    
+        // Añadir el evento "change" a todos los radio buttons
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach((radio) => {
+            radio.addEventListener('change', calcularTotal);
+        });
+    </script>
+    <script>
+        // Función para generar la frase basada en los datos del formulario
+        function generarFrase() {
+            // Obtener los valores seleccionados de los radio buttons
+            const motor = obtenerSeleccionado('motor');
+            const transmision = obtenerSeleccionado('transmision');
+            const traccion = obtenerSeleccionado('traccion');
+            const carroceria = obtenerSeleccionado('carroceria');
+            const puertas = obtenerSeleccionado('puertas');
+    
+            // Verificar si todos los campos están seleccionados
+            if (motor === 'no especificado' || 
+                transmision === 'no especificado' || 
+                traccion === 'no especificado' || 
+                carroceria === 'no especificado' || 
+                puertas === 'no especificado') {
+                // Mostrar mensaje de advertencia si falta algún campo
+                document.getElementById('resultado').textContent = 'Por favor, selecciona todas las opciones antes de generar la frase.';
+                return; // Salir de la función
+            }
+    
+            // Crear la frase con los valores obtenidos
+            const frase = `Quiero los 3 mejores coches que sean de motor ${motor}, con transmisión ${transmision}, que tengan tracción ${traccion}, tipo de carrocería ${carroceria} y con ${puertas} puertas.`;
+    
+            // Mostrar la frase generada en el contenedor de resultado
+            document.getElementById('resultado').textContent = frase;
+
+        }
+    
+        // Función para obtener el valor seleccionado de un grupo de radio buttons
+        function obtenerSeleccionado(nombre) {
+            const seleccionado = document.querySelector(`input[name="${nombre}"]:checked`);
+            return seleccionado ? seleccionado.value : 'no especificado';
+        }
+    </script>
+
+</body>
+</html>
