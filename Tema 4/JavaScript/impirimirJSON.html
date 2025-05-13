@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir JSON desde archivo</title>
+    <style>
+        /* Estilo para la tabla */
+        table {
+            border-collapse: collapse; /* Elimina los espacios entre bordes de las celdas */
+            width: 100%; /* La tabla ocupará el 100% del ancho disponible */
+        }
+        th, td {
+            border: 1px solid #ddd; /* Bordes de las celdas */
+            padding: 8px; /* Espaciado interno de las celdas */
+        }
+        th {
+            background-color: #f4f4f4; /* Color de fondo para los encabezados */
+            text-align: left; /* Alineación del texto a la izquierda */
+        }
+    </style>
+</head>
+<body>
+    <h1>Datos del JSON</h1>
+    <!-- Tabla donde se mostrarán los datos del JSON -->
+    <table id="jsonTable">
+        <thead>
+            <tr>
+                <!-- Encabezados de la tabla -->
+                <th>Empleado</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Posición</th>
+                <th>Departamento</th>
+                <th>Salario</th>
+                <th>Ubicación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se insertarán las filas dinámicamente con JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Ruta del archivo JSON
+        const jsonFilePath = 'Ej2Json.json'; // Archivo JSON que contiene los datos
+
+        // Referencia al cuerpo de la tabla (tbody)
+        const tableBody = document.querySelector("#jsonTable tbody");
+
+        // Cargar el archivo JSON usando fetch
+        fetch(jsonFilePath)
+            .then(response => {
+                // Verifica si la respuesta es correcta
+                if (!response.ok) {
+                    throw new Error(`Error al cargar el archivo JSON: ${response.statusText}`);
+                }
+                return response.json(); // Convierte la respuesta a un objeto JSON
+            })
+            .then(data => {
+                // Itera sobre el array "Datos" del JSON
+                data.Datos.forEach(item => {
+                    // Crea una nueva fila para la tabla
+                    const row = document.createElement("tr");
+                    // Inserta las celdas con los datos del JSON
+                    row.innerHTML = `
+                        <td>${item.Employee}</td> <!-- Columna: ID del empleado -->
+                        <td>${item.Name}</td> <!-- Columna: Nombre del empleado -->
+                        <td>${item.Age}</td> <!-- Columna: Edad del empleado -->
+                        <td>${item.Position}</td> <!-- Columna: Posición del empleado -->
+                        <td>${item.Department}</td> <!-- Columna: Departamento -->
+                        <td>${item.Salary}</td> <!-- Columna: Salario -->
+                        <td>${item.Location}</td> <!-- Columna: Ubicación -->
+                    `;
+                    // Agrega la fila al cuerpo de la tabla
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                // Manejo de errores en caso de que falle la carga del JSON
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
