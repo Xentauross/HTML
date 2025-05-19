@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para IA</title>
+    <style>
+        /* Estilos básicos para el cuerpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Fondo claro */
+        }
+    
+        /* Estilos para el formulario */
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+    
+        /* Estilos para las cajas de opciones */
+        .opciones {
+            display: flex;
+            flex-direction: column; /* Asegura que el título esté arriba */
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fefefe; /* Fondo claro para las opciones */
+        }
+        #calculo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        /* Centrar el h2 dentro de las cajas */
+        .opciones h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        /* Estilos para los contenedores de etiquetas */
+        .selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center; /* Centra las opciones */
+        }
+    
+        /* Estilos para las etiquetas dentro de las cajas */
+        .opciones label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+    
+        /* Estilos para los botones */
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Estilos para el contenedor del resultado */
+        #resultado {
+            max-width: 600px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #fff; /* Fondo blanco */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px; /* Altura mínima para el contenedor */    
+            margin-bottom: 20px;    
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matrícula</h1>
+
+    <!-- Formulario para recoger los datos -->
+    <form id="formulario">
+        <!-- Selección para las horas semanales -->
+        <div class="opciones">
+            <h2>Numero de horas semanales</h2>
+            <div class="selector">
+                <label><input type="radio" name="hora" data-precio="20"> 1 hora</label>
+                <label><input type="radio" name="hora" data-precio="40"> 2 horas</label>
+                <label><input type="radio" name="hora" data-precio="60"> 3 horas</label>
+                <label><input type="radio" name="hora" data-precio="80"> 4 horas</label>
+                <label><input type="radio" name="hora" data-precio="100"> 5 horas</label>
+                <label><input type="radio" name="hora" data-precio="120"> 6 horas</label>
+            </div>
+        </div>
+        <!-- Selección para el tipo de alunmno -->
+        <div class="opciones">
+            <h2>¿Eres antiguo alumno?</h2>
+            <div class="selector">
+                <label><input type="radio" name="alumno" value="si" > Si</label>
+                <label><input type="radio" name="alumno" value="no" > No</label>
+            </div>
+        </div>
+        <!-- Selección para la beca -->
+        <div class="opciones">
+            <h2>¿Eres becado?</h2>
+            <div class="selector">
+                <label><input type="radio" name="beca" value="si" > Si</label>
+                <label><input type="radio" name="beca" value="no"> No</label>
+            </div>
+        </div>
+        <!-- Selección para las materias-->
+        <div class="opciones">
+            <h2>Materias de primero</h2>
+            <div class="selector">
+                <label><input type="checkbox" name="materia" value="matematicasI"> Matematicas I</label>
+                <label><input type="checkbox" name="materia" value="historia"> Historia</label>
+            </div>
+        </div>
+        <div class="opciones">
+            <h2>Materias de segundo</h2>
+            <div class="selector">
+                <label><input type="checkbox" name="materia" value="matematicasII"> Matematicas II</label>
+                <label><input type="checkbox" name="materia" value="ficica"> Física</label>
+            </div>
+        </div>
+        <!--Calculo total -->
+        <div  id="calculo" class="opciones">
+            <div id="total">
+            Total: 0€
+            </div>
+            <div id="descuento" >
+            Descuento: 0€
+            </div>
+        </div>
+    </form>
+    <script>
+function calcularTotal() {
+    // 1. Calcular precio base según horas
+    const horaSeleccionada = document.querySelector('input[name="hora"]:checked');
+    if (!horaSeleccionada) {
+        document.getElementById('total').textContent = 'Selecciona las horas semanales';
+        return;
+    }
+    const total = parseInt(horaSeleccionada.getAttribute('data-precio')) ;
+
+    // 2. Validar materias
+    const matI = document.querySelector('input[name="materia"][value="matematicasI"]').checked;
+    const matII = document.querySelector('input[name="materia"][value="matematicasII"]').checked;
+    if (matII && !matI) {
+        document.getElementById('total').textContent = '';
+        document.getElementById('descuento').textContent = 'Error: No puedes elegir Matemáticas II sin elegir Matemáticas I';
+        return;
+    }
+
+    // 3. Descuento antiguo alumno
+    const alumno = document.querySelector('input[name="alumno"]:checked');
+    let descuentoAntiguo = 0;
+    if (alumno && alumno.value === 'si') {
+        descuentoAntiguo = true;
+    }
+
+    // 4. Descuento beca
+    const beca = document.querySelector('input[name="beca"]:checked');
+    let tieneBeca = false;
+    if (beca && beca.value === 'si') {
+        tieneBeca = true;
+    }
+
+// ...existing code...
+// 5. Calcular precios finales
+let totalConAntiguo = total;
+if (descuentoAntiguo) {
+    totalConAntiguo = total * (1 - 0.35); // Aplica 35% de descuento
+}
+
+let totalConBeca = total;
+if (tieneBeca && descuentoAntiguo) {
+    // Primero descuento antiguo alumno, luego beca
+    totalConBeca = total * (1 - 0.35) * 0.2;
+} else if (tieneBeca) {
+    // Solo beca
+    totalConBeca = total * 0.2;
+}
+
+// 6. Mostrar resultados
+document.getElementById('total').textContent = `Total: ${total.toFixed(2)}€`;
+if (tieneBeca) {
+    document.getElementById('descuento').textContent = `Con descuento: ${totalConBeca.toFixed(2)}€`;
+} else if (descuentoAntiguo) {
+    document.getElementById('descuento').textContent = `Con descuento: ${totalConAntiguo.toFixed(2)}€`;
+} else {
+    document.getElementById('descuento').textContent = '';
+}
+
+}
+
+// Eventos para recalcular al cambiar cualquier campo
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('change', calcularTotal);
+});
+</script>
+</body>
+</html>
