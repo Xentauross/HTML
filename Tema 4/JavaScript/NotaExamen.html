@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Importamos la biblioteca jQuery desde un CDN para facilitar la manipulación del DOM -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Nota de examen</title>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".calcular").click(function(){
+                let correctas, incorrectas, penalizacion = 0, notaBase, notaFinal;
+                const totalPreguntas = 27; // Total de preguntas del examen
+
+                // Obtenemos el valor de las preguntas correctas
+                correctas = Number($(".valor1").val());
+
+                // Calculamos las incorrectas automáticamente
+                incorrectas = totalPreguntas - correctas;
+
+                // Obtenemos la penalización seleccionada en el radio button
+                let penalizacionSeleccionada = $("input[name='hora']:checked").data("penalizacion");
+
+                // Verifica si los valores son válidos
+                if (isNaN(correctas) || correctas < 0 || correctas > totalPreguntas || penalizacionSeleccionada === undefined) {
+                    $(".resultado").html("<p>Error: Ingresa un número válido de correctas y selecciona el retraso.</p>");
+                    return;
+                }
+
+                penalizacion = Number(penalizacionSeleccionada);
+
+                // Calcula la nota base
+                notaBase = (correctas / totalPreguntas) * 10;
+
+                // Calcula la nota final restando la penalización total por fallos
+                notaFinal = notaBase - (incorrectas * penalizacion);
+
+                // Asegura que la nota no sea menor que 0
+                if (notaFinal < 0) notaFinal = 0;
+
+                // Muestra la nota base y la nota final
+                $(".resultado").html(
+                    "<p>Nota sin penalizar: " + notaBase.toFixed(2) + "</p>" +
+                    "<p>Tu nota final es: " + notaFinal.toFixed(2) + "</p>"
+                );
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Mi examen</h1>
+    <p>Para saber tu nota real, introduce tus datos en los campos correspondientes.</p>
+    <!-- Campo de entrada solo para las correctas -->
+    <p>Preguntas Correctas <input type="number" name="valor1" class="valor1" min="0" max="27"></p>
+    <div>
+        <label><input type="radio" name="hora" data-penalizacion="0.1"> -1 hora (cada fallo resta 0.1)</label>
+        <label><input type="radio" name="hora" data-penalizacion="0.2"> -12 horas (cada fallo resta 0.2)</label>
+        <label><input type="radio" name="hora" data-penalizacion="0.3"> -24 horas (cada fallo resta 0.3)</label>
+    </div>
+    <br>
+    <!-- Botón para calcular la nota -->
+    <input type="button" class="calcular" value="Calcular">
+    <!-- Aquí se mostrará el resultado de la operación -->
+    <div class="resultado"></div>
+</body>
+</html>
